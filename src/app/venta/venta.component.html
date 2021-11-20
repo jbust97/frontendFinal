@@ -42,6 +42,7 @@
             id="basic-url"
             aria-describedby="basic-addon3"
             disabled
+            [value] = "venta.total"
           />
         </div>
         </div>
@@ -49,7 +50,7 @@
     </div>
     <hr />
 
-    <div class="row" *ngFor="let detalle of venta.detalles">
+    <div class="row" *ngFor="let detalle of venta.detalles; let i = index" [attr.data-index]="i">
         <div class="detalle">
             <div class="row">
                 <div class="form-group col-6">
@@ -58,9 +59,7 @@
                         <select class="form-select" id="producto" name="producto" [(ngModel)]="detalle.producto" (ngModelChange)="actualizarTotalDetalle(detalle)"> 
                             <option *ngFor="let producto of productos" [ngValue]="producto">{{producto.nombre}} - {{producto.codigo}}</option>
                         </select>
-                    </div>
-                    
-                    
+                    </div>   
                 </div>
                 <div class="col-6">
                     <div class="input-group mb-3">
@@ -101,12 +100,14 @@
                         />
                     </div>
                 </div>
+                <div class="col-6">
+                    <button class="btn btn-danger col-3 mx-auto mb-3" (click)="eliminarDetalle(i)">Eliminar Detalle</button>
+                </div>
             </div>
             <hr />
         </div>
     </div>
     <div class="row">
-    
       <button (click)="agregarDetalle()" class="btn btn-primary col-3 mx-auto mb-3">
         Agregar Detalle
       </button>
