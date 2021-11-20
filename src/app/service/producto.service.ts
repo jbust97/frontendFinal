@@ -12,7 +12,11 @@ export class ProductoService {
 
   async getAll() {
     const querySnapshot = await getDocs(collection(this.firestore, this.collectionId));
-    return querySnapshot.docs.map(doc => doc.data())
+    return querySnapshot.docs.map(doc => {
+      const data = doc.data()
+      data.id = doc.id 
+      return data;
+    })
   }
 
   async create(producto: Producto) {
@@ -37,7 +41,7 @@ export class ProductoService {
   }
 
   async delete(id: string) {
-    return deleteDoc(doc(this.firestore, this.collectionId, id));
+    return deleteDoc(doc(this.firestore, this.collectionId,"1"));
   }
 
 }

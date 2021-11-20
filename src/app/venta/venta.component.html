@@ -1,1 +1,103 @@
-<p>venta works!</p>
+<div class="container">
+    <h1>Registro de Ventas</h1>
+     <div class="col-6">
+            <button class="btn btn-success  col-3 mx-auto mb-3">
+                Registrar Venta
+            </button>
+        </div>
+    <hr />
+    <div class="row">
+      <label for="basic-url" class="form-label">Cliente</label>
+      <div class="col-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon3">Ruc / Cedula</span>
+          <input
+            name="numeroDocumento"
+            type="text"
+            class="form-control"
+            id="basic-url"
+            aria-describedby="basic-addon3"
+          />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="col-6 input-group mb-3">
+          <span class="input-group-text" id="basic-addon3">Nombre</span>
+          <input
+            disabled
+            type="text"
+            class="form-control"
+            id="basic-url"
+            aria-describedby="basic-addon3"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon3">Total:</span>
+          <input
+            type="text"
+            class="form-control"
+            id="basic-url"
+            aria-describedby="basic-addon3"
+            disabled
+          />
+        </div>
+        </div>
+       
+    </div>
+    <hr />
+
+    <div class="row" *ngFor="let detalle of venta.detalles">
+        <div class="detalle">
+            <div class="row">
+                <div class="col-6">
+                    <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Producto:</span>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="basic-url"
+                        aria-describedby="basic-addon3"
+                    />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3">Cantidad:</span>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="basic-url"
+                        aria-describedby="basic-addon3"
+                        />
+                    </div> 
+                </div>
+                <div class="col-6">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Total:</span>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="basic-url"
+                    aria-describedby="basic-addon3"
+                    disabled
+                    />
+                </div>
+            </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+    
+      <button (click)="agregarDetalle()" class="btn btn-primary col-3 mx-auto mb-3">
+        Agregar Detalle
+      </button>
+     
+    </div>
+
+</div>
+  </div>
+  
