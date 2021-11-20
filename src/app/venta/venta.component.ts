@@ -1,15 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CabeceraVenta } from '../models/cabeceraVenta';
+import { DetalleVenta } from '../models/detalleVenta';
+import { Producto } from '../models/producto';
+import { ProductoService } from '../service/producto.service';
+import {v4 as uuiv4} from 'uuid';
 @Component({
   selector: 'app-venta',
   templateUrl: './venta.component.html',
   styleUrls: ['./venta.component.css']
 })
 export class VentaComponent implements OnInit {
-
-  constructor() { }
+  venta: CabeceraVenta = new CabeceraVenta();
+  productos: Producto[] = [];
+  constructor(private productoService: ProductoService) { }
 
   ngOnInit(): void {
+    this.productoService.delete("1").then();
+    this.productoService.getAll().then(data => {
+      console.log(data);
+      data.map(producto => this.productos.push({
+        id: producto.id,
+        nombre: producto.nombre,
+        codigo: producto.codigo,
+        precioVenta: producto.precioVenta,
+        existencia: producto.existencia
+      }));
+    })
   }
 
+  agregarDetalle(){
+    if (this.venta.detalles){
+      let detalle = new DetalleVenta()
+      this.venta.detalles.push(detalle)
+    }else{
+      this.venta.detalles = []
+      let detalle = new DetalleVenta()
+      this.venta.detalles.push(detalle)
+    }
+    
+    console.log(this.venta)
+  }
+
+  
 }
