@@ -41,7 +41,7 @@ export class ProductoService {
   }
 
   async delete(id: string) {
-    return deleteDoc(doc(this.firestore, this.collectionId,"1"));
+    return deleteDoc(doc(this.firestore, this.collectionId,id));
   }
 
 }
