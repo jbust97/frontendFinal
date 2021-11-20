@@ -43,6 +43,19 @@ export class VentaComponent implements OnInit {
   actualizarTotalDetalle(detalle: DetalleVenta){
     if (detalle.producto && detalle.cantidad){
       detalle.totalDetalle = detalle.producto.precioVenta * detalle.cantidad
+      this.actualizarTotal()
     }
+  }
+  actualizarTotal(){
+    let total = 0
+    for (let detalle of this.venta.detalles){
+      total += detalle.totalDetalle
+    }
+    this.venta.total = total;
+  }
+
+  eliminarDetalle(index: number){
+    this.venta.detalles.splice(index,1);
+    this.actualizarTotal()
   }
 }
