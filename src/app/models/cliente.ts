@@ -1,6 +1,6 @@
 export class Cliente {
-    idCliente!: number;
-    nombreCompleto!: string;
-    ruc!: string;
-    email!: string;
+  id!: number;
+  nombreCompleto!: string;
+  ruc!: string;
+  email!: string;
 }
