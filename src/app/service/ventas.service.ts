@@ -34,7 +34,10 @@ export class VentasService {
 
   async create(ventas: CabeceraVenta) {
     return setDoc(
-      doc(collection(this.firestore, this.collectionId), ventas.id),
+      doc(
+        collection(this.firestore, this.collectionId), 
+        ventas.id
+      ), 
       ventas
     );
   }
