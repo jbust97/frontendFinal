@@ -11,6 +11,7 @@ import {
   query,
   where,
 } from '@angular/fire/firestore';
+import * as moment from 'moment';
 import { CabeceraVenta } from '../models/cabeceraVenta';
 
 @Injectable({
@@ -71,8 +72,8 @@ export class VentasService {
     const filters = [];
 
     if (rucCliente) filters.push(where('cliente.ruc', '==', rucCliente));
-    if (fechaDesde) filters.push(where('fecha', '>=', fechaDesde));
-    if (fechaHasta) filters.push(where('fecha', '<=', fechaHasta));
+    if (fechaDesde) filters.push(where('fecha', '>=',  moment(fechaDesde).format('YYYY/MM/DD')));
+    if (fechaHasta) filters.push(where('fecha', '<=',moment(fechaHasta).format('YYYY/MM/DD') ));
 
     const ventasRef = collection(this.firestore, this.collectionId);
 
