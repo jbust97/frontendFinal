@@ -4,6 +4,9 @@ import { DetalleVenta } from '../models/detalleVenta';
 import { Producto } from '../models/producto';
 import { ProductoService } from '../service/producto.service';
 import {v4 as uuiv4} from 'uuid';
+import { ClienteService } from '../service/cliente.service';
+import * as moment from 'moment' ;
+import { VentasService } from '../service/ventas.service';
 @Component({
   selector: 'app-venta',
   templateUrl: './venta.component.html',
@@ -12,7 +15,8 @@ import {v4 as uuiv4} from 'uuid';
 export class VentaComponent implements OnInit {
   venta: CabeceraVenta = new CabeceraVenta();
   productos: Producto[] = [];
-  constructor(private productoService: ProductoService) { }
+  nroDocumento: string = ""
+  constructor(private productoService: ProductoService, private clienteService: ClienteService, private ventaService: VentasService) { }
   ngOnInit(): void {
     this.venta.total = 0;
     this.productoService.getAll().then(data => {
@@ -57,5 +61,18 @@ export class VentaComponent implements OnInit {
   eliminarDetalle(index: number){
     this.venta.detalles.splice(index,1);
     this.actualizarTotal()
+  }
+
+  async getCliente(){
+    const clientData =  await this.clienteService.getByNroDocumento(this.nroDocumento);
+    this.venta.cliente = {'id': clientData.id, 'nombreCompleto': clientData.nombreCompleto, 'ruc': clientData.ruc, 'email': clientData.email}
+  }
+
+  async registrarVenta(){
+    this.venta.fecha = moment(new Date()).format('YYYY/MM/DD')
+    this.venta.id = uuiv4()
+    this.venta.factura = this.venta.id.slice(0,8);
+    console.log(JSON.parse(JSON.stringify(this.venta)));
+    await this.ventaService.create(this.venta); 
   }
 }

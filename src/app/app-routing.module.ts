@@ -5,6 +5,7 @@ import { ReporteVentaComponent } from './reporte-venta/reporte-venta.component';
 import { ProductoComponent } from './producto/producto.component';
 import { NuevoProductoComponent } from './producto/nuevo-producto/nuevo-producto.component';
 import { ModificarProductoComponent } from './producto/modificar-producto/modificar-producto.component';
+import { ReporteVentaDetalladoComponent } from './reporte-venta-detallado/reporte-venta-detallado.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'productos/:id/editar',
     component: ModificarProductoComponent,
+  },
+  {
+    path: 'reporte-ventas-detallado',
+    component: ReporteVentaDetalladoComponent,
   },
 ];
 
