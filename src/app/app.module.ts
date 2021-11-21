@@ -13,9 +13,12 @@ import { ReporteVentaDetalladoComponent } from './reporte-venta-detallado/report
 import { ClienteComponent } from './cliente/cliente.component';
 import { NuevoClienteComponent } from './cliente/nuevo-cliente/nuevo-cliente.component';
 import { ModificarClienteComponent } from './cliente/modificar-cliente/modificar-cliente.component';
+import { ProductoComponent } from './producto/producto.component';
+import { NuevoProductoComponent } from './producto/nuevo-producto/nuevo-producto.component';
+import { ModificarProductoComponent } from './producto/modificar-producto/modificar-producto.component';
 
 @NgModule({
-  declarations: [AppComponent, VentaComponent, ReporteVentaComponent, ReporteVentaDetalladoComponent, ClienteComponent, NuevoClienteComponent, ModificarClienteComponent],
+  declarations: [AppComponent, VentaComponent, ReporteVentaComponent, ProductoComponent, NuevoProductoComponent, ModificarProductoComponent, ReporteVentaDetalladoComponent, ClienteComponent, NuevoClienteComponent, ModificarClienteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
