@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VentaComponent } from './venta/venta.component';
 import { ReporteVentaComponent } from './reporte-venta/reporte-venta.component';
+import { ProductoComponent } from './producto/producto.component';
+import { NuevoProductoComponent } from './producto/nuevo-producto/nuevo-producto.component';
+import { ModificarProductoComponent } from './producto/modificar-producto/modificar-producto.component';
 
 const routes: Routes = [
   {
@@ -11,6 +14,18 @@ const routes: Routes = [
   {
     path: 'reporte-ventas',
     component: ReporteVentaComponent,
+  },
+  {
+    path: 'productos',
+    component: ProductoComponent,
+  },
+  {
+    path: 'productos/nuevo',
+    component: NuevoProductoComponent,
+  },
+  {
+    path: 'productos/:id/editar',
+    component: ModificarProductoComponent,
   },
 ];
 

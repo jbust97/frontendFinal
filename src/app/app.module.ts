@@ -9,9 +9,12 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { ReporteVentaComponent } from './reporte-venta/reporte-venta.component';
 import { FormsModule } from '@angular/forms';
+import { ProductoComponent } from './producto/producto.component';
+import { NuevoProductoComponent } from './producto/nuevo-producto/nuevo-producto.component';
+import { ModificarProductoComponent } from './producto/modificar-producto/modificar-producto.component';
 
 @NgModule({
-  declarations: [AppComponent, VentaComponent, ReporteVentaComponent],
+  declarations: [AppComponent, VentaComponent, ReporteVentaComponent, ProductoComponent, NuevoProductoComponent, ModificarProductoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
