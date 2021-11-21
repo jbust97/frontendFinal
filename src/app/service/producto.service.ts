@@ -25,7 +25,7 @@ export class ProductoService {
         collection(this.firestore, this.collectionId), 
         producto.id
       ), 
-      producto
+      {...producto}
     );
   }
 
