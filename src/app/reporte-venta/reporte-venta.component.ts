@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CabeceraVenta } from '../models/cabeceraVenta';
-import { ReporteVentasService } from '../service/reporte-ventas.service';
+import { ClienteService } from '../service/cliente.service';
+import { VentasService } from '../service/ventas.service';
 
 @Component({
   selector: 'app-reporte-venta',
@@ -8,22 +9,34 @@ import { ReporteVentasService } from '../service/reporte-ventas.service';
   styleUrls: ['./reporte-venta.component.css'],
 })
 export class ReporteVentaComponent implements OnInit {
-  public numeroDocumento: string = '4909519';
-  public fechaDesde: string = '';
-  public fechaHasta: string = '';
+  public numeroDocumento: string = '';
+  public nombreCliente: string = '';
+  public fechaDesde: any = null;
+  public fechaHasta: any = null;
   public listaVentas: CabeceraVenta[] = [];
-  constructor(private reporteVentasService: ReporteVentasService) {}
+  constructor(
+    private ventasService: VentasService,
+    private clienteService: ClienteService
+  ) {}
 
   ngOnInit(): void {}
 
-  getVentas(): void {
-    const fechaDesde = new Date(this.fechaDesde);
-    const fechaHasta = new Date(this.fechaHasta);
-    console.log(fechaHasta, fechaDesde);
-    this.reporteVentasService.getVentas(
-      this.numeroDocumento,
+  async getVentas(): Promise<void> {
+    const fechaDesde = this.fechaDesde && new Date(this.fechaDesde);
+    const fechaHasta = this.fechaHasta && new Date(this.fechaHasta);
+
+    this.listaVentas = await this.ventasService.getVentas({
+      rucCliente: this.numeroDocumento,
       fechaDesde,
-      fechaHasta
+      fechaHasta,
+    });
+    const cliente = await this.clienteService.getByNroDocumento(
+      this.numeroDocumento
     );
+    if (this.numeroDocumento || this.numeroDocumento === '0') {
+      this.nombreCliente = cliente
+        ? cliente.nombreCompleto
+        : 'No existe un Cliente con este RUC/Cedula';
+    }
   }
 }
