@@ -1,0 +1,30 @@
+
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Agregar Cliente</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="nombreCompleto">Nombre Completo</label>
+                    <textarea type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" [(ngModel)]="cliente.nombreCompleto"></textarea>
+                </div>
+                <div class="form-group  col-6">
+                    <label for="ruc">RUC</label>
+                    <textarea type="textArea" class="form-control" id="ruc" name="ruc" [(ngModel)]="cliente.ruc"></textarea> 
+                </div>
+                </div>
+            <div class="form-group">
+                <label for= "email">Email</label>
+                <textarea type="email" class="form-control" id="email" name="email" [(ngModel)]="cliente.email"></textarea>
+            </div>
+        </form>    
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" routerLink="/cliente">Volver</button>
+        <button type="button" class="btn btn-primary" (click)="guardarCliente()">Guardar</button>
+    </div>
+    </div>
+</div>

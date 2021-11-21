@@ -36,7 +36,7 @@ export class ClienteService {
   async create(cliente: Cliente) {
     return setDoc(
       doc(collection(this.firestore, this.collectionId), cliente.id),
-      cliente
+      { ...cliente }
     );
   }
 

@@ -10,9 +10,12 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { ReporteVentaComponent } from './reporte-venta/reporte-venta.component';
 import { FormsModule } from '@angular/forms';
 import { ReporteVentaDetalladoComponent } from './reporte-venta-detallado/reporte-venta-detallado.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { NuevoClienteComponent } from './cliente/nuevo-cliente/nuevo-cliente.component';
+import { ModificarClienteComponent } from './cliente/modificar-cliente/modificar-cliente.component';
 
 @NgModule({
-  declarations: [AppComponent, VentaComponent, ReporteVentaComponent, ReporteVentaDetalladoComponent],
+  declarations: [AppComponent, VentaComponent, ReporteVentaComponent, ReporteVentaDetalladoComponent, ClienteComponent, NuevoClienteComponent, ModificarClienteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
