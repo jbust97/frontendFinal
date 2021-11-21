@@ -1,7 +1,7 @@
 import { Cliente } from './cliente';
 import { DetalleVenta } from './detalleVenta';
 export class CabeceraVenta {
-  id!: number;
+  id!: string;
   fecha!: string;
   factura!: string;
   cliente!: Cliente;
