@@ -25,9 +25,9 @@ export class ClienteComponent implements OnInit {
   }
 
 
-  cancelarCliente(cliente: Cliente) {
-    this.clienteService.delete(cliente.id)
-    .then((data:any) => console.log(`Cliente ${cliente.id} cancelada!`));
+  cancelarCliente(id: string) {
+    this.clienteService.delete(id)
+    .then((data:any) => console.log(`Cliente ${id} cancelada!`));
     this.getClientes();
   }
 

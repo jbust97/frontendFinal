@@ -6,20 +6,48 @@
       </div>
       <div class="modal-body">
         <form>
+           
             <div class="row">
-                <div class="form-group col-6">
-                    <label for="nombreCompleto">Nombre Completo</label>
-                    <textarea type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" [(ngModel)]="cliente.nombreCompleto"></textarea>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">Nombre Completo</span>
+                  <input
+                    name="numeroDocumento"
+                    type="text"
+                    class="form-control"
+                    id="basic-url"
+                    aria-describedby="basic-addon3"
+                    [(ngModel)]="cliente.nombreCompleto"
+                  />
                 </div>
-                <div class="form-group  col-6">
-                    <label for="ruc">RUC</label>
-                    <textarea type="textArea" class="form-control" id="ruc" name="ruc" [(ngModel)]="cliente.ruc"></textarea> 
+         </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">RUC</span>
+                  <input
+                    name="numeroDocumento"
+                    type="text"
+                    class="form-control"
+                    id="basic-url"
+                    aria-describedby="basic-addon3"
+                    [(ngModel)]="cliente.ruc"
+                  />
                 </div>
+         </div>
+        </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">Email</span>
+                  <input
+                    name="numeroDocumento"
+                    type="email"
+                    class="form-control"
+                    id="basic-url"
+                    aria-describedby="basic-addon3"
+                    [(ngModel)]="cliente.email"
+                  />
                 </div>
-            <div class="form-group">
-                <label for= "email">Email</label>
-                <textarea type="email" class="form-control" id="email" name="email" [(ngModel)]="cliente.email"></textarea>
-            </div>
+         </div>
         </form>    
         </div>
       <div class="modal-footer">

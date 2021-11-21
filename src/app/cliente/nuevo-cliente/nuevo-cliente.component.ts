@@ -19,7 +19,7 @@ export class NuevoClienteComponent implements OnInit {
 
   guardarCliente(){
     this.cliente.id = uuid();;
-    this.clienteService.create(this.cliente)
+    this.clienteService.create(this.cliente).then(()=>window.location.pathname="cliente")
   }
 
 }

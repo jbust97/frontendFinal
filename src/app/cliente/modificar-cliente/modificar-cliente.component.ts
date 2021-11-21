@@ -10,6 +10,7 @@ export class ModificarClienteComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

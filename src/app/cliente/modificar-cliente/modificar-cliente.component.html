@@ -1,1 +1,57 @@
-<p>modificar-cliente works!</p>
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Agregar Cliente</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+           
+            <div class="row">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">Nombre Completo</span>
+                  <input
+                    name="numeroDocumento"
+                    type="text"
+                    class="form-control"
+                    id="basic-url"
+                    aria-describedby="basic-addon3"
+                    [(ngModel)]="cliente.nombreCompleto"
+                  />
+                </div>
+         </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">RUC</span>
+                  <input
+                    name="numeroDocumento"
+                    type="text"
+                    class="form-control"
+                    id="basic-url"
+                    aria-describedby="basic-addon3"
+                    [(ngModel)]="cliente.ruc"
+                  />
+                </div>
+         </div>
+        </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon3">Email</span>
+                  <input
+                    name="numeroDocumento"
+                    type="email"
+                    class="form-control"
+                    id="basic-url"
+                    aria-describedby="basic-addon3"
+                    [(ngModel)]="cliente.email"
+                  />
+                </div>
+         </div>
+        </form>    
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" routerLink="/cliente">Volver</button>
+        <button type="button" class="btn btn-primary" (click)="guardarCliente()">Guardar</button>
+    </div>
+    </div>
+</div>
