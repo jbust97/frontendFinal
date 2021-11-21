@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Registro de Ventas</h1>
      <div class="col-6">
-            <button class="btn btn-success  col-3 mx-auto mb-3">
+            <button class="btn btn-success  col-3 mx-auto mb-3" (click)="registrarVenta()">
                 Registrar Venta
             </button>
         </div>
@@ -17,7 +17,9 @@
             class="form-control"
             id="basic-url"
             aria-describedby="basic-addon3"
-          />
+            [(ngModel)]="nroDocumento"
+            (ngModelChange)="getCliente()"
+            />
         </div>
       </div>
       <div class="col-6">
@@ -29,6 +31,7 @@
             class="form-control"
             id="basic-url"
             aria-describedby="basic-addon3"
+            [value] = "venta.cliente?.nombreCompleto"
           />
         </div>
       </div>
